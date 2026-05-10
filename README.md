@@ -6,6 +6,10 @@ FastAPI backend for the Team USA Constellation Hub — Cloud Run deployable, Gem
 
 This project is licensed under the Apache License 2.0. See `LICENSE`.
 
+## Frontend
+
+The frontend code is build using Google AI Studio and is it current codebase is [here](https://github.com/Husky-AI9/Constellation/tree/main/ConstellationFrontEnd).
+
 ## Overview
 
 This backend serves the **Hometown Signals** and **LA28 Momentum** challenges from the Team USA Hackathon Hub frontend (`Hub.tsx`). It exposes exactly the endpoints that `Hub.tsx` calls:
