@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@import "tw-animate-css";
+
+@import "shadcn/tailwind.css";
+
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-usa-red: hsl(var(--usa-red));
+  --color-usa-blue: hsl(var(--usa-blue));
+  --color-white-soft: hsl(var(--white-soft));
+  --color-gold: hsl(var(--gold));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    /* Team USA Constellation palette (HSL) */
+    --navy: 224 60% 6%;            /* #050A18 */
+    --deep-blue: 220 70% 21%;      /* #102A5C */
+    --usa-blue: 220 100% 56%;      /* #1E6BFF */
+    --usa-red: 359 73% 56%;        /* #E03A3E */
+    --white-soft: 222 100% 98%;    /* #F8FAFF */
+    --silver: 220 50% 90%;         /* #D9E2F2 */
+    --gold: 41 89% 64%;            /* #F6C453 */
+
+    /* Semantic tokens */
+    --background: var(--navy);
+    --foreground: var(--white-soft);
+
+    --card: 224 50% 9%;
+    --card-foreground: var(--white-soft);
+
+    --popover: 224 50% 9%;
+    --popover-foreground: var(--white-soft);
+
+    --primary: var(--usa-red);
+    --primary-foreground: var(--white-soft);
+
+    --secondary: var(--usa-blue);
+    --secondary-foreground: var(--white-soft);
+
+    --muted: 224 30% 14%;
+    --muted-foreground: 220 30% 70%;
+
+    --accent: var(--usa-blue);
+    --accent-foreground: var(--white-soft);
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: var(--white-soft);
+
+    --border: 220 40% 20%;
+    --input: 220 40% 20%;
+    --ring: var(--usa-blue);
+
+    --radius: 1.5rem;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--usa-red)) 0%, hsl(330 80% 55%) 35%, hsl(var(--usa-blue)) 100%);
+    --gradient-cta: linear-gradient(90deg, hsl(var(--usa-red)) 0%, hsl(var(--usa-blue)) 100%);
+    --gradient-glass: linear-gradient(135deg, hsla(0,0%,100%,0.08), hsla(0,0%,100%,0.02));
+
+    /* Shadows */
+    --shadow-glow-red: 0 20px 60px -10px hsl(var(--usa-red) / 0.45);
+    --shadow-glow-blue: 0 20px 60px -10px hsl(var(--usa-blue) / 0.45);
+    --shadow-card: 0 30px 80px -20px hsl(var(--navy) / 0.8);
+  }
+
+  * { @apply border-border outline-ring/50; }
+  html, body, #root { height: 100%; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .font-display { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.04em; }
+  html {
+    @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsla(0,0%,100%,0.12);
+  }
+  .glass-strong {
+    background: hsla(224, 50%, 9%, 0.55);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid hsla(0,0%,100%,0.14);
+  }
+  .text-gradient-usa {
+    background: var(--gradient-cta);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .shadow-glow-red { box-shadow: var(--shadow-glow-red); }
+  .shadow-glow-blue { box-shadow: var(--shadow-glow-blue); }
+
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes float-slower {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+  }
+  @keyframes sweep {
+    0% { transform: translateX(-120%); }
+    100% { transform: translateX(120%); }
+  }
+  @keyframes rise-in {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-float { animation: float-slow 6s ease-in-out infinite; }
+  .animate-float-2 { animation: float-slower 7s ease-in-out infinite; }
+  .animate-rise { animation: rise-in 0.9s cubic-bezier(.2,.7,.2,1) both; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-float, .animate-float-2, .animate-rise { animation: none !important; }
+  }
+}
+
